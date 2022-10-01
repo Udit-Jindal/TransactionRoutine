@@ -11,5 +11,8 @@ public class Main
     public static void main(String[] args) throws RequiredEntityMissingException
     {
         Transaction tx = new Purchase(new Account(232323232l), 4532.2, Calendar.getInstance());
+        
+        
+        tx.getAccount();
     }
 }
