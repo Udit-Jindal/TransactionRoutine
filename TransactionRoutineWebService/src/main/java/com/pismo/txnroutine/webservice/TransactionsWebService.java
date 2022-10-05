@@ -42,24 +42,18 @@ public class TransactionsWebService extends HttpServlet
 
     public TransactionsWebService() throws ClassNotFoundException
     {
-        String mySqlHostName = "localhost";
-        String mySqlPort = "3306";
-        String mySqlDbName = "txn_routine";
-        String mySqlusername = "root";
-        String mySqlpassword = "admin@12345";
-        String mysqlUseSSL = "false";
-//        String mySqlHostName = System.getenv("MYSQL_HOSTNAME");
-//        String mySqlPort = System.getenv("MYSQL_PORT");
-//        String mySqlDbName = System.getenv("MYSQL_DB_NAME");
-//        String mySqlusername = System.getenv("MYSQL_USER");
-//        String mySqlpassword = System.getenv("MYSQL_PASS");
+        String mySqlHostName = System.getenv("MYSQL_HOSTNAME");
+        String mySqlPort = System.getenv("MYSQL_PORT");
+        String mySqlDbName = System.getenv("MYSQL_DB_NAME");
+        String mySqlusername = System.getenv("MYSQL_USER");
+        String mySqlpassword = System.getenv("MYSQL_PASS");
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         sqlConString = "jdbc:mysql://" + mySqlHostName + ":" + mySqlPort
                 + "/" + mySqlDbName + "?user=" + mySqlusername
-                + "&password=" + mySqlpassword + "&useSSL="
-                + mysqlUseSSL + "&allowPublicKeyRetrieval=true";
+                + "&password=" + mySqlpassword
+                + "&useSSL=false&allowPublicKeyRetrieval=true";
     }
 
     @Override
